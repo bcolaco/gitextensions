@@ -526,7 +526,11 @@ namespace GitUI.BranchTreePanel
 
         private void OnPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyCode == Keys.F3)
+            if (e.KeyCode == Keys.F2)
+            {
+                Node.OnNode<Node>(treeMain.SelectedNode, node => node.OnRename());
+            }
+            else if (e.KeyCode == Keys.F3)
             {
                 OnBtnSearchClicked(null, null);
             }
