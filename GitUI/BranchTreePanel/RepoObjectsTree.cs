@@ -526,13 +526,14 @@ namespace GitUI.BranchTreePanel
 
         private void OnPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyCode == Keys.F2)
+            switch (e.KeyCode)
             {
-                Node.OnNode<Node>(treeMain.SelectedNode, node => node.OnRename());
-            }
-            else if (e.KeyCode == Keys.F3)
-            {
-                OnBtnSearchClicked(null, null);
+                case Keys.F2:
+                    Node.OnNode<Node>(treeMain.SelectedNode, node => node.OnRename());
+                    break;
+                case Keys.F3:
+                    OnBtnSearchClicked(null, null);
+                    break;
             }
         }
 
